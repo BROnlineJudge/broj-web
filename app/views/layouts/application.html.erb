@@ -9,6 +9,21 @@
   </head>
 
   <body>
+	  <nav>
+	    <div class="nav-wrapper">
+	      <div class="brand-logo center">
+	      	<img src="<%=image_url("logo.jpg")%>">
+	      </div>
+	      <ul id="nav-mobile" class="left hide-on-med-and-down">
+	        <li><a class="navbar-item" href="">Home</a></li>
+	        <li><a class="navbar-item" href="">Contests</a></li>
+	        <li><a class="navbar-item" href="">Submissions</a></li>
+	      </ul>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	      	<li><a class="navbar-item white-text" href="#" >Log in</a></li>
+	      </ul>
+	    </div>
+	  </nav>
     <%= yield %>
   </body>
 </html>

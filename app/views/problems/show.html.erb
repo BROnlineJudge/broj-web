@@ -1,33 +1,33 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="col s10 m10">
-    <div class="card red accent-4">
-      <div class="card-content black-text problem">
+  <div class="col s9 m9">
+    <div class="card teal lighten-3">
+      <div class="card-content grey-text text-darken-2 problem">
         <center>
           <span class="card-title"><%= @problem.name %></span>
         </center>
-        <div class="card  lime accent-2">
-          <div class="card-content black-text problem">
+        <div class="card  white">
+          <div class="card-content grey-text text-darken-2 problem">
             <%= @problem.description %>
           </div>
         </div>
-        <div class="card  lime accent-2">
-          <div class="card-content black-text problem">
+        <div class="card  white">
+          <div class="card-content grey-text text-darken-2 problem">
             <h2>Example:</h2>
-            <div class="card  lime accent-2">
-              <div class="card-content black-text problem">
+            <div class="card  white">
+              <div class="card-content grey-text text-darken-2 problem">
                 Input: <%= @problem.sample_input %>
               </div>
             </div>
-            <div class="card  lime accent-2">
-              <div class="card-content black-text problem">
+            <div class="card  white">
+              <div class="card-content grey-text text-darken-2 problem">
               Output: <%= @problem.sample_output %>
               </div>
             </div>
           </div>
         </div>
-        <div class="card  lime accent-2">
-          <div class="card-content black-text problem">
+        <div class="card  white">
+          <div class="card-content grey-text text-darken-2 problem">
             <h2>Note:</h2>
             <%= @problem.note %>
           </div>
@@ -36,6 +36,31 @@
       <div class="card-action">
         <%= link_to 'Edit', edit_problem_path(@problem) %> |
         <%= link_to 'Back', problems_path %>
+      </div>
+    </div>
+  </div>
+  <div class="col s3 m3">
+    <div class="card teal lighten-3">
+      <div class="card-content grey-text text-darken-2 problem">
+        <span class="card-title">Contest 2</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue, eros id congue convallis, mi eros rhoncus lorem, ac luctus ligula lacus auctor purus. Nullam a congue massa, a mollis felis.</p>
+      </div>
+      <div class="card-action">
+        <a href="#">Standing</a>
+        <a href="#">Announcement</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s3 m3">
+    <div class="card teal lighten-3">
+      <div class="card-content grey-text text-darken-2 problem">
+        <span class="card-title">My Submissions</span>
+      <div class="card-action">
+        Submission 2 | WA
+      </div>
+      <div class="card-action">
+        Submission 1 | TLE
+      </div>
       </div>
     </div>
   </div>

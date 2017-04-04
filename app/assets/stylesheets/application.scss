@@ -14,6 +14,19 @@
  *= require_self
  */
 @import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("orange", "base") !default;
+$primary-color: color("teal", "lighten-3") !default;
+$secondary-color: color("black", "base") !default;
 @import 'materialize';
+
+.navbar-item {
+	padding: 20px 15px !important;
+	font-size: 1.3rem;
+}
+
+.navbar-item:visited {
+	color: auto;
+}
+
+.brand-logo img {
+	width: 15%;
+}
