@@ -20,7 +20,14 @@
 	        <li><a class="navbar-item" href="">Submissions</a></li>
 	      </ul>
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
-	      	<li><a class="navbar-item white-text" href="#" >Log in</a></li>
+	      	<li>
+	      		<% if user_signed_in? %>
+	      			<%= current_user.email %>
+	      			<%= link_to 'Log out', destroy_user_session_url, :method => :delete, :class => "navbar-item white-text" %>
+	      		<% else %>
+	      			<%= link_to 'Log in', new_user_session_url, :class => "navbar-item white-text" %>
+	      		<% end %>
+	      	</a></li>
 	      </ul>
 	    </div>
 	  </nav>

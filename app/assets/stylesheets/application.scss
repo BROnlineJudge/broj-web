@@ -17,10 +17,12 @@
 $primary-color: color("teal", "lighten-3") !default;
 $secondary-color: color("black", "base") !default;
 @import 'materialize';
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 .navbar-item {
 	padding: 20px 15px !important;
 	font-size: 1.3rem;
+	text-transform: uppercase;
 }
 
 .navbar-item:visited {
