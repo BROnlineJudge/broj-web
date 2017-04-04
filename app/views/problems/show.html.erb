@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col s10 m10">
+    <div class="card red accent-4">
+      <div class="card-content black-text problem">
+        <center>
+          <span class="card-title"><%= @problem.name %></span>
+        </center>
+        <div class="card  lime accent-2">
+          <div class="card-content black-text problem">
+            <%= @problem.description %>
+          </div>
+        </div>
+        <div class="card  lime accent-2">
+          <div class="card-content black-text problem">
+            <h2>Example:</h2>
+            <div class="card  lime accent-2">
+              <div class="card-content black-text problem">
+                Input: <%= @problem.sample_input %>
+              </div>
+            </div>
+            <div class="card  lime accent-2">
+              <div class="card-content black-text problem">
+              Output: <%= @problem.sample_output %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card  lime accent-2">
+          <div class="card-content black-text problem">
+            <h2>Note:</h2>
+            <%= @problem.note %>
+          </div>
+        </div>
+      </div>
+      <div class="card-action">
+        <%= link_to 'Edit', edit_problem_path(@problem) %> |
+        <%= link_to 'Back', problems_path %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
