@@ -1,0 +1,23 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag('logo.jpg', alt: 'BROJ', width: '30', height: '30', class: 'd-inline-block align-top') %>
+    BROJ
+  <% end %>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><%= link_to "Contests", "#", class: "nav-link"%></li>
+      <li class="nav-item"><%= link_to "Submissions", "#", class: "nav-link"%></li>
+
+      <% if user_signed_in? %>
+        <li class="nav-item"><%= link_to "Log out", destroy_user_session_url, method: :delete, class: "nav-link" %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to 'Log in', new_user_session_url, class: "nav-link" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
