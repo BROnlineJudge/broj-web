@@ -22,8 +22,25 @@ html {
 
 body {
   height: 100%;
-  background-color: #AAFFED;
+  background-color: #FEFEFE;
 }
 
-.broj-bg {
+.navbar {
+  background-color: #7BB992;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.navbar-light .navbar-brand {
+  color: rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.5);
+  }
 }
