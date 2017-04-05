@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :test_case do
+    
+  end
   sequence :email do |n|
     "email#{n}@factory.com"
   end

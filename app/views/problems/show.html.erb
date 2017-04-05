@@ -13,17 +13,12 @@
 
           <div class="card">
             <div class="card-block">
-              <h4>Example:</h4>
-              <div class="card">
-                <div class="card-block">
-                  Input: <%= @problem.sample_input %>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-block">
-                Output: <%= @problem.sample_output %>
-                </div>
-              </div>
+              <h4>Input:</h4>
+              <%= @problem.input_description %>
+            </div>
+            <div class="card-block">
+              <h4>Output:</h4>
+              <%= @problem.output_description %>
             </div>
           </div>
 

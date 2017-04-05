@@ -10,12 +10,6 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Description</th>
-            <th>Sample input</th>
-            <th>Sample output</th>
-            <th>Input</th>
-            <th>Output</th>
-            <th>Note</th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -25,12 +19,6 @@
             <tr>
               <td scope="row"><%= problem.id %></td>
               <td><%= problem.name %></td>
-              <td><%= problem.description %></td>
-              <td><%= problem.sample_input %></td>
-              <td><%= problem.sample_output %></td>
-              <td><%= problem.input %></td>
-              <td><%= problem.output %></td>
-              <td><%= problem.note %></td>
               <td>
                 <%= link_to 'Show', problem_path(problem), class: 'btn btn-xs btn-secondary' %>
                 <%= link_to 'Edit', edit_problem_path(problem), class: 'btn btn-xs btn-secondary' %>
@@ -41,7 +29,7 @@
         </tbody>
       </table>
 
-      <%= link_to 'New Problem', new_problem_path, class: 'btn btn-secondary' %>
+      <%= link_to 'New Problem', new_problem_path, class: 'btn btn-primary' %>
 
     </div>
   </div>
