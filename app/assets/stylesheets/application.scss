@@ -14,3 +14,16 @@
  *= require_self
  */
 @import "bootstrap";
+
+html {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: #AAFFED;
+}
+
+.broj-bg {
+}
