@@ -1,6 +1,6 @@
 class Problem < ApplicationRecord
   has_many :test_cases
-  belongs_to :contest, optional: true
+  has_and_belongs_to_many :contests
 
   validates :name, presence: true
   validates :description, presence: true

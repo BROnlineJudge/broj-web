@@ -16,13 +16,18 @@ ActiveRecord::Schema.define(version: 20170406190946) do
   enable_extension "plpgsql"
 
   create_table "contests", force: :cascade do |t|
-    t.string   "name"
-    t.time     "start"
-    t.integer  "duration"
+    t.string   "name",       null: false
+    t.datetime "start",      null: false
+    t.integer  "duration",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "problem_id"
-    t.index ["problem_id"], name: "index_contests_on_problem_id", using: :btree
+  end
+
+  create_table "contests_problems", id: false, force: :cascade do |t|
+    t.integer "problem_id"
+    t.integer "contest_id"
+    t.index ["contest_id"], name: "index_contests_problems_on_contest_id", using: :btree
+    t.index ["problem_id"], name: "index_contests_problems_on_problem_id", using: :btree
   end
 
   create_table "problems", force: :cascade do |t|
@@ -63,6 +68,5 @@ ActiveRecord::Schema.define(version: 20170406190946) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "contests", "problems"
   add_foreign_key "test_cases", "problems", column: "problems_id"
 end

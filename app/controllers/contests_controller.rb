@@ -25,7 +25,6 @@ class ContestsController < ApplicationController
   # POST /contests.json
   def create
     @contest = Contest.new(contest_params)
-
     respond_to do |format|
       if @contest.save
         format.html { redirect_to @contest, notice: 'Contest was successfully created.' }
@@ -69,6 +68,6 @@ class ContestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contest_params
-      params.require(:contest).permit(:name, :start, :duration, problems: [])
+      params.require(:contest).permit(:name, :start, :duration, problem_ids: [])
     end
 end

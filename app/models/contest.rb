@@ -1,5 +1,12 @@
 class Contest < ApplicationRecord
-	has_many :problems
+  has_and_belongs_to_many :problems
 
-	validates :name, presence: true
+  validates :name, presence: true
+  validates :start, presence: true
+  validates :duration, presence: true
+
+  def ended?
+    # TODO:
+    false
+  end
 end
