@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :contest do
+    name "MyString"
+    start "2017-04-06 19:02:10"
+    duration 1
+  end
   factory :test_case do
     
   end
