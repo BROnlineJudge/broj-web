@@ -1,19 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <p>Name: <%= @contest.name %></p>
+      <p>Start: <%= @contest.start %></p>
+      <p>Duration: <%= @contest.duration %></p>
+      <p>Created_at: <%= @contest.created_at %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @contest.name %>
-</p>
-
-<p>
-  <strong>Start:</strong>
-  <%= @contest.start %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @contest.duration %>
-</p>
-
-<%= link_to 'Edit', edit_contest_path(@contest) %> |
-<%= link_to 'Back', contests_path %>
+      <%= link_to 'Edit', edit_contest_path(@contest), class: 'btn btn-primary' %>
+      <%= link_to 'Back', contests_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
