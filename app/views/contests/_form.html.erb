@@ -9,7 +9,7 @@
   <div class="form-group row">
     <%= f.label :start, class: 'col-sm-2 col-form-label' %>
     <div class="col-sm-10">
-      <%= f.time_select :start, required: true, class: 'form-control' %>
+      <%= f.datetime_select :start, required: true, html_options: {class: 'form-control custom-select', type: 'datetime-local'} %>
     </div>
   </div>
 
