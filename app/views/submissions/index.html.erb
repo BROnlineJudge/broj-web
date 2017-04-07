@@ -5,13 +5,13 @@
     </div>
 
     <div class="row">
-      <table class="table table-bordered table-hover table-responsive">
+      <table class="table table-bordered table-hover table-responsive submission">
         <thead>
           <tr>
           <th>Verdict</th>
           <th>Language</th>
           <th>Execution time</th>
-          <th colspan="3"></th>
+          <th colspan="2"></th>
           </tr>
         </thead>
 
@@ -21,7 +21,6 @@
               <td><%= submission.verdict %></td>
               <td><%= submission.language %></td>
               <td><%= submission.execution_time %>ms</td>
-              <td><%= link_to 'Show', submission, class: 'btn btn-xs btn-secondary' %></td>
               <td><%= link_to 'Edit', edit_submission_path(submission), class: 'btn btn-xs btn-secondary' %></td>
               <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-xs btn-danger' %></td>
             </tr>
@@ -30,7 +29,7 @@
       </table>
     </div>
 
-    <%= link_to 'New Submission', new_submission_path , class: 'btn btn-primary' %>
+    <%= link_to 'New Submission', new_submission_path , class: 'btn btn-success' %>
   </div>
   </div>
 </div>

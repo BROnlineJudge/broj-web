@@ -9,6 +9,7 @@ gem 'rails', '~> 5.0.2'
 
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'font-awesome-rails'
 
 gem 'pg'
 gem 'puma', '~> 3.0'
