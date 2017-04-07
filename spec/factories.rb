@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :submission do
+    verdict "MyString"
+    language "MyString"
+    execution_time 1
+    code "MyText"
+  end
   factory :contest do
     name "MyString"
     start "2017-04-06 19:02:10"

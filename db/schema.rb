@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406190946) do
+ActiveRecord::Schema.define(version: 20170407150849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20170406190946) do
     t.integer  "memory_limit",       null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.string   "verdict"
+    t.string   "language"
+    t.integer  "execution_time"
+    t.text     "code"
+    t.integer  "user_id"
+    t.integer  "problem_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["problem_id"], name: "index_submissions_on_problem_id", using: :btree
+    t.index ["user_id"], name: "index_submissions_on_user_id", using: :btree
   end
 
   create_table "test_cases", force: :cascade do |t|

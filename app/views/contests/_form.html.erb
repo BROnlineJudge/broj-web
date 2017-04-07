@@ -23,7 +23,7 @@
   <div class="form-group row">
     <%= f.label :problem_ids, class: 'col-sm-2 col-form-label' %>
     <div class="col-sm-10">
-      <%= f.select :problem_ids, Problem.pluck(:name, :id), {}, { multiple: true, class: 'form-control custom-select'} %>
+      <%= f.select :problem_ids, Problem.pluck(:name, :id), {}, { class: 'form-control custom-select'} %>
     </div>
   </div>
 

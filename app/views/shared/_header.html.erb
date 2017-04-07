@@ -9,7 +9,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item"><%= link_to "Problems", problems_path, class: "nav-link" %></li>
       <li class="nav-item"><%= link_to "Contests", contests_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "Submissions", "#", class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "Submissions", submissions_path, class: "nav-link" %></li>
 
       <% if user_signed_in? %>
         <li class="nav-item"><%= link_to "Log out", destroy_user_session_url, method: :delete, class: "nav-link" %></li>
