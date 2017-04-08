@@ -21,7 +21,7 @@
             <tr>
               <td><%= contest.id %></td>
               <td><%= link_to contest.name, contest_path(contest) %></td>
-              <td><a target="_blank"href="https://www.timeanddate.com/worldclock/fixedtime.html?day=<%=contest.start.day%>&month=<%=contest.start.month%>&year=<%=contest.start.year%>&hour=<%=contest.start.hour%>&min=<%=contest.start.min%>&sec=<%=contest.start.sec%>"><%= contest.start %></a></td>
+              <td><a target="_blank" href="https://www.timeanddate.com/worldclock/fixedtime.html?day=<%=contest.start.day%>&month=<%=contest.start.month%>&year=<%=contest.start.year%>&hour=<%=contest.start.hour%>&min=<%=contest.start.min%>&sec=<%=contest.start.sec%>"><%= contest.start %></a></td>
               <td><%= contest.duration %> min </td>
               <td>
                 <%= link_to 'Edit', edit_contest_path(contest), class: 'btn btn-xs btn-secondary' %>
