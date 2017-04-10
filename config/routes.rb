@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   }
 
   resources :problems
+  post 'contests/:contest_id/register' => 'contests#register', :as => :register_contest
 
   root to: 'home_page#index'
 end
