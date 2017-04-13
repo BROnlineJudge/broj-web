@@ -12,7 +12,7 @@
             </li>
           </ul>
         </div>
-        <div class="card-block">
+        <div class="card-block main-content">
           <div class="row">
             <table class="table table-striped table-bordered table-hover table-responsive contest">
               <thead>
@@ -39,8 +39,8 @@
           </div>
         </div>
         <div class="card-block">
-          <%= link_to 'Edit', edit_contest_path(@contest), class: 'btn btn-success text-white' %>
-          <%= link_to 'Back', contests_path, class: 'btn btn-success text-white' %>
+          <%= link_to 'Edit', edit_contest_path(@contest), class: 'btn btn-success text-white' if(user_signed_in? and current_user.admin) %>
+          <%= link_to 'Back', contests_path, class: 'btn btn-success text-white' if(user_signed_in? and current_user.admin) %>
         </div>
       </div>
     </div>
@@ -48,6 +48,15 @@
       <div class="card">
         <div class="card-header">
           <%= @contest.name %>
+        </div>
+        <div class="card-block">
+          <p>Start: <%= @contest.start %></p>
+          <p>Duration: <%= @contest.duration %><%=" "%>minutes</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          Statistics
         </div>
         <div class="card-block">
           <p>Start: <%= @contest.start %></p>
