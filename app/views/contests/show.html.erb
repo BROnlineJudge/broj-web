@@ -3,40 +3,47 @@
     <div class="col-md-9">
       <div class="card">
         <div class="card-header">
-          <ul class="nav nav-tabs card-header-tabs">
+          <ul class="nav nav-tabs card-header-tabs panel-tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Problems</a>
+              <a class="nav-link active" href="#problems" data-toggle="tab" role="tab">Problems</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Standings</a>
+              <a class="nav-link" href="#standings" data-toggle="tab" role="tab">Standings</a>
             </li>
           </ul>
         </div>
         <div class="card-block main-content">
-          <div class="row">
-            <table class="table table-striped table-bordered table-hover table-responsive contest">
-              <thead>
-                <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Time Limit</th>
-                <th>Memory Limit</th>
-                <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-              <% @contest.problems.each_with_index do |problem, i| %>
-                <tr>
-                  <td><%= @alph[i] %></td>
-                  <td><%= problem.name %></td>
-                  <td><%= problem.time_limit %>s</td>
-                  <td><%= problem.memory_limit %>mb</td>
-                  <td>Not Tried</td>
-                </tr>
-              <% end %>
-              </tbody>
-            </table>
-          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="problems">
+              <div class="row">
+                <table class="table table-striped table-bordered table-hover table-responsive contest">
+                  <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Time Limit</th>
+                    <th>Memory Limit</th>
+                    <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% @contest.problems.each_with_index do |problem, i| %>
+                    <tr>
+                      <td><%= @alph[i] %></td>
+                      <td><%= problem.name %></td>
+                      <td><%= problem.time_limit %>s</td>
+                      <td><%= problem.memory_limit %>mb</td>
+                      <td>Not Tried</td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="standings">
+              Here goes the Standings
+            </div>  
+          </div>  
         </div>
         <div class="card-block">
           <%= link_to 'Edit', edit_contest_path(@contest), class: 'btn btn-success text-white' if(user_signed_in? and current_user.admin) %>
