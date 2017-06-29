@@ -14,6 +14,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   def new
     @submission = Submission.new
+    system "./submit.sh"
   end
 
   # POST /submissions

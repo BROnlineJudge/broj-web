@@ -19,8 +19,8 @@
           <% @submissions.each do |submission| %>
             <tr>
               <td><%= link_to submission.verdict, submission_path(submission) %></td>
-              <td><%= submission.language %>s</td>
-              <td><%= submission.execution_time %>mb</td>
+              <td><%= submission.language %></td>
+              <td><%= submission.execution_time %>ms</td>
               <td>
                 <%= link_to 'Edit', edit_submission_path(submission), class: 'btn btn-xs btn-secondary' %>
                 <%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>

@@ -5,6 +5,7 @@ class CreateProblems < ActiveRecord::Migration[5.0]
       t.text    :description,        null: false
       t.text    :input_description,  null: false
       t.text    :output_description, null: false
+      t.text    :custom_check
       t.text    :note
 
       t.integer :time_limit,         null: false

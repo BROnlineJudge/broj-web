@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170407212921) do
     t.text     "description",        null: false
     t.text     "input_description",  null: false
     t.text     "output_description", null: false
+    t.text     "custom_check"
     t.text     "note"
     t.integer  "time_limit",         null: false
     t.integer  "memory_limit",       null: false
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(version: 20170407212921) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

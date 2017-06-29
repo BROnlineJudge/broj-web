@@ -41,7 +41,39 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="standings">
-              Here goes the Standings
+              <div class="row">
+                <table class="table table-striped table-bordered table-hover table-responsive contest">
+                  <thead>
+                    <tr>
+                    <th>Team</th>
+                    <th>Total</th>
+                    <th>Penalty</th>
+                    <% @contest.problems.each_with_index do |problem, i| %>
+                      <th><%= @alph[i] %></th>
+                    <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @contest.users.each do |user| %>
+                      <% @verdicts = [] %>
+                      <% @score = 0 %>
+                      <% @contest.problems.each do |problem| %>
+                        <% @verdict = user.get_verdict(problem) %>
+                        <% @verdicts << @verdict %>
+                        <% @score += 1 if @verdict == 1 %>
+                      <% end %>
+                      <tr>
+                        <td><%=user.name%></td>
+                        <td><%= @score %></td>
+                        <td>12</td>
+                        <% @contest.problems.each_with_index do |problem, i| %>
+                          <td> <%= @verdicts[i] %></td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
             </div>  
           </div>  
         </div>
@@ -66,8 +98,8 @@
           Statistics
         </div>
         <div class="card-block">
-          <p>Start: <%= @contest.start %></p>
-          <p>Duration: <%= @contest.duration %><%=" "%>minutes</p>
+          <p>A: 1/2</p>
+          <p>B: 0/1</p>
         </div>
       </div>
     </div>
