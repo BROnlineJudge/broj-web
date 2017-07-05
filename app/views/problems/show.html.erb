@@ -7,27 +7,28 @@
 
           <div class="card">
             <div class="card-block">
-              <%= @problem.description %>
+              <%= @problem.description.html_safe %>
             </div>
           </div>
 
           <div class="card">
             <div class="card-block">
               <h4>Input:</h4>
-              <%= @problem.input_description %>
+              <%= @problem.input_description.html_safe %>
             </div>
             <div class="card-block">
               <h4>Output:</h4>
-              <%= @problem.output_description %>
+              <%= @problem.output_description.html_safe %>
             </div>
           </div>
-
+          <%if(not @problem.note.blank?)%>
           <div class="card">
             <div class="card-block">
               <h4>Note:</h4>
               <%= @problem.note %>
             </div>
           </div>
+          <% end %>
         </div>
 
         <div class="card-block">
@@ -41,7 +42,7 @@
       <div class="card">
         <div class="card-block">
           <h4 class="card-title">Contest 2</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue, eros id congue convallis, mi eros rhoncus lorem, ac luctus ligula lacus auctor purus. Nullam a congue massa, a mollis felis.</p>
+          <p>Runing: 57 minutes left</p>
         </div>
         <div class="card-action">
           <a class="btn" href="#">Standings</a>

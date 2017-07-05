@@ -14,7 +14,6 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   def new
     @submission = Submission.new
-    system "./submit.sh"
   end
 
   # POST /submissions
@@ -23,7 +22,7 @@ class SubmissionsController < ApplicationController
     params = submission_params
     params["user_id"] = current_user.id
     @submission = Submission.new(params)
-
+    system "./submit.sh;"
     respond_to do |format|
       if @submission.save
         format.html { redirect_to submissions_url, notice: 'Submission was successfully created.' }
