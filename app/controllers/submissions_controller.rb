@@ -1,5 +1,6 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /submissions
   # GET /submissions.json
@@ -22,10 +23,14 @@ class SubmissionsController < ApplicationController
     params = submission_params
     params["user_id"] = current_user.id
     @submission = Submission.new(params)
-    system "./submit.sh;"
     respond_to do |format|
       if @submission.save
         format.html { redirect_to submissions_url, notice: 'Submission was successfully created.' }
+        filename = "solutions/" + @submission.id.to_s
+        File.open(filename,  "w") { |file| file.write(@submission.code) }
+        system "./submit.sh " + filename + " " + @submission.language + " \'" + 
+               Problem.find_by(id: @submission.problem_id).name + "\'" + " " +  
+               "http://localhost:1234/submissions/" + @submission.id.to_s + " ;"
       else
         format.html { render :new }
         format.json { render json: @submission.errors, status: :unprocessable_entity }

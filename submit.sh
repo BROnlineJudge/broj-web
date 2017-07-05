@@ -1,3 +1,2 @@
-cd ../ejudge-python-rabbitmq;
 .  ~/virtualenvs/broj/bin/activate;
-./client.py -l cpp -f ./solutions/1.cpp -u 1 -p 3 --host 192.168.25.175
+./../ejudge-python-rabbitmq/client.py -l $2 -f $1 -u $4 -p "$3" --host 192.168.25.175
