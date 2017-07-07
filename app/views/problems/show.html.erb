@@ -32,8 +32,8 @@
         </div>
 
         <div class="card-block">
-          <%= link_to 'Edit', edit_problem_path(@problem), class: 'card-link btn btn-primary' %>
-          <%= link_to 'Back', problems_path, class: 'card-link btn btn-primary' %>
+          <%= link_to 'Edit', edit_problem_path(@problem), class: 'card-link btn btn-primary' if(user_signed_in? and current_user.admin) %>
+          <%= link_to 'Back', problems_path, class: 'card-link btn btn-primary' if(user_signed_in? and current_user.admin) %>
         </div>
       </div>
     </div>

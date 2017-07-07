@@ -22,15 +22,15 @@
               <td><%= problem.time_limit %>s</td>
               <td><%= problem.memory_limit %>mb</td>
               <td>
-                <%= link_to 'Edit', edit_problem_path(problem), class: 'btn btn-xs btn-secondary' %>
-                <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+                <%= link_to 'Edit', edit_problem_path(problem), class: 'btn btn-xs btn-secondary' if(user_signed_in? and current_user.admin) %>
+                <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' if(user_signed_in? and current_user.admin) %>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
 
-      <%= link_to 'New Problem', new_problem_path, class: 'btn btn-primary' %>
+      <%= link_to 'New Problem', new_problem_path, class: 'btn btn-primary' if(user_signed_in? and current_user.admin)%>
 
     </div>
   </div>

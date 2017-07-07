@@ -8,16 +8,17 @@ class User < ApplicationRecord
   
   public
 
-  def get_verdict(problem)
+  def get_verdict(problem, start_time, end_time)
     verdict = 0
     self.submissions.all.each do |submission|
-      print "="*30
-      print problem.id
-      print submission.problem_id
-      print submission.verdict
-      print "="*30
+      puts "="*30
+      puts problem.id
+      puts submission.problem_id
+      puts submission.verdict
+      puts "="*30
+      next if(submission.created_at < start_time || submission.created_at > end_time)
       if(problem.id == submission.problem_id)
-        if(submission.verdict == "AC")
+        if(submission.verdict == "Accepted")
           return 1
         else
           verdict-=1

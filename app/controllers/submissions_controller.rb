@@ -7,6 +7,7 @@ class SubmissionsController < ApplicationController
   def index
     if user_signed_in?
       @submissions = Submission.all.select{|s| s.user_id == current_user.id}
+      @submissions = @submissions.sort_by{|c| c.created_at}.reverse()
     else
       redirect_to new_user_session_url, notice: 'Login required.'
     end
@@ -23,6 +24,7 @@ class SubmissionsController < ApplicationController
     params = submission_params
     params["user_id"] = current_user.id
     @submission = Submission.new(params)
+    @submission.verdict = "Not Yet Judged"
     respond_to do |format|
       if @submission.save
         format.html { redirect_to submissions_url, notice: 'Submission was successfully created.' }

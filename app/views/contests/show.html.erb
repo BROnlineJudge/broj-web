@@ -30,7 +30,7 @@
                   <% @contest.problems.each_with_index do |problem, i| %>
                     <tr>
                       <td><%= @alph[i] %></td>
-                      <td><%= problem.name %></td>
+                      <td><%= link_to problem.name, problem_path(problem) %></td>
                       <td><%= problem.time_limit %>s</td>
                       <td><%= problem.memory_limit %>mb</td>
                       <td>Not Tried</td>
@@ -58,7 +58,7 @@
                       <% @verdicts = [] %>
                       <% @score = 0 %>
                       <% @contest.problems.each do |problem| %>
-                        <% @verdict = user.get_verdict(problem) %>
+                        <% @verdict = user.get_verdict(problem, @contest.start, @contest.start + (@contest.duration*60)) %>
                         <% @verdicts << @verdict %>
                         <% @score += 1 if @verdict == 1 %>
                       <% end %>
