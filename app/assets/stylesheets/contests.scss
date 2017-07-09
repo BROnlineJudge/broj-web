@@ -3,7 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .contest td {
-	min-width: 160px;
+	width: 160px;
+}
+
+.baloon {
+	min-width: 50px !important;
 }
 
 .main-content {

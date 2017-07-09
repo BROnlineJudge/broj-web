@@ -54,22 +54,36 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <% @scoreboard_users = [] %>
                     <% @contest.users.each do |user| %>
                       <% @verdicts = [] %>
                       <% @score = 0 %>
+                      <% @penalty = 0 %>
                       <% @contest.problems.each do |problem| %>
                         <% @verdict = user.get_verdict(problem, @contest.start, @contest.start + (@contest.duration*60)) %>
-                        <% @verdicts << @verdict %>
-                        <% @score += 1 if @verdict == 1 %>
+                        <% @verdicts << @verdict[0] %>
+                        <% @score += 1 if @verdict[0] >= 1 %>
+                        <% print @verdict[1] %>
+                        <% @penalty += (@verdict[0]-1)*20 + Integer(@verdict[1] - @contest.start)/60 if @verdict[0] >= 1 %>
                       <% end %>
-                      <tr>
-                        <td><%=user.name%></td>
-                        <td><%= @score %></td>
-                        <td>12</td>
-                        <% @contest.problems.each_with_index do |problem, i| %>
-                          <td> <%= @verdicts[i] %></td>
+                      <% @current_user = [user.name, @score, @penalty] %>
+                      <% @contest.problems.each_with_index do |problem, i| %>
+                        <% @current_user << @verdicts[i] %>
+                      <% end %>
+                      <% @scoreboard_users.push(@current_user) %>
+                    <% end %>
+                    <% @scoreboard_users.sort_by{|c| [-c[1], c[2]]}.each do |user| %>
+                    <tr>
+                      <% user.each_with_index do |d, i| %>
+                        <% if(i>2) %>
+                          <td class="baloon">
+                        <% else %>
+                          <td>
                         <% end %>
-                      </tr>
+                          <%=d%>
+                        </td>
+                      <% end %>
+                    </tr>
                     <% end %>
                   </tbody>
                 </table>

@@ -15,3 +15,16 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(document).ready(function(){
+	$(".baloon").each(function() {
+	  console.log($(this).html());
+	  if ($(this).html() > 0) {
+	    $(this).css("background-color", "#7BB992");
+	    $(this).css("color", "white");
+	  } else if($(this).html() < 0){
+	    $(this).css("background-color", "#F08080");
+	    $(this).css("color", "white");
+	  }
+	});
+});
