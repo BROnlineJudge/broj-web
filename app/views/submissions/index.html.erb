@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 push-md-3">
+      <h1>Submissions</h1>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table table-striped table-bordered table-hover table-responsive contest">
+        <thead>
+          <tr>
+          <th>Problem</th>
+          <th>Verdict</th>
+          <th>Language</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @submissions.each do |submission| %>
+            <tr>
+              <td><%= Problem.find_by(id: submission.problem_id).name %></td>
+              <td><%= link_to submission.verdict, submission_path(submission) %></td>
+              <td><%= submission.language %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= link_to 'New Submission', new_submission_path, class: 'btn btn-primary' %>
+
+    </div>
+  </div>
+</div>

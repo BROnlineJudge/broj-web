@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 push-md-3">
+      <h1>Contests</h1>
+    </div>
+
+    <div class="row">
+      <table class="table table-bordered table-hover table-responsive">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Start</th>
+            <th>Duration</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @contests.each do |contest| %>
+            <tr>
+              <td><%= contest.id %></td>
+              <td><%= link_to contest.name, contest_path(contest) %></td>
+              <td><a target="_blank" href="https://www.timeanddate.com/worldclock/fixedtime.html?day=<%=contest.start.day%>&month=<%=contest.start.month%>&year=<%=contest.start.year%>&hour=<%=contest.start.hour%>&min=<%=contest.start.min%>&sec=<%=contest.start.sec%>"><%= contest.start %></a></td>
+              <td><%= contest.duration %> min </td>
+              <td>
+                <% if user_signed_in? %>
+                  <% if (contest.users.all.include?(current_user)) %>
+                    REGISTERED
+                  <% else %>  
+                    <%= link_to 'register', register_contest_url(contest), method: :post, class: 'btn btn-xs btn-secondary' %>
+                  <% end %>
+                <% else %>
+                  Log in to register!
+                <% end %>
+                <%= link_to 'Edit', edit_contest_path(contest), class: 'btn btn-xs btn-secondary' if(user_signed_in? and current_user.admin) %>
+                <%= link_to 'Destroy', contest, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' if(user_signed_in? and current_user.admin) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= link_to 'New Contest', new_contest_path, class: 'btn btn-primary' if(user_signed_in? and current_user.admin) %>
+
+    </div>
+  </div>
+</div>

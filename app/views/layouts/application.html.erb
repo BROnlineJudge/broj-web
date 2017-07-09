@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BrojWeb</title>
+    <title>BROnlineJudge</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,28 +9,11 @@
   </head>
 
   <body>
-	  <nav>
-	    <div class="nav-wrapper">
-	      <div class="brand-logo center">
-	      	<img src="<%=image_url("logo.jpg")%>">
-	      </div>
-	      <ul id="nav-mobile" class="left hide-on-med-and-down">
-	        <li><a class="navbar-item" href="">Home</a></li>
-	        <li><a class="navbar-item" href="">Contests</a></li>
-	        <li><a class="navbar-item" href="">Submissions</a></li>
-	      </ul>
-	      <ul id="nav-mobile" class="right hide-on-med-and-down">
-	      	<li>
-	      		<% if user_signed_in? %>
-	      			<%= current_user.email %>
-	      			<%= link_to 'Log out', destroy_user_session_url, :method => :delete, :class => "navbar-item white-text" %>
-	      		<% else %>
-	      			<%= link_to 'Log in', new_user_session_url, :class => "navbar-item white-text" %>
-	      		<% end %>
-	      	</a></li>
-	      </ul>
-	    </div>
-	  </nav>
-    <%= yield %>
+    <div class="wrap">
+      <%= render 'shared/header' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded navtop">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to '[BROJ]', root_path, class: "navbar-brand" %>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><%= link_to "PROBLEMS", problems_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "CONTESTS", contests_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "SUBMISSIONS", submissions_path, class: "nav-link" %></li>
+
+      <% if user_signed_in? %>
+        <li class="nav-item"><%= link_to "Log out", destroy_user_session_url, method: :delete, class: "nav-link" %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to 'Log in', new_user_session_url, class: "nav-link" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

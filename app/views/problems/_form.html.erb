@@ -1,52 +1,69 @@
 <%= form_for(problem) do |f| %>
-  <% if problem.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(problem.errors.count, "error") %> prohibited this problem from being saved:</h2>
-
-      <ul>
-      <% problem.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="form-group row">
+    <%= f.label :name, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, autofocus: true, required: true, placeholder: 'Name', class: 'form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description, :class => 'materialize-textarea' %>
+  <div class="form-group row">
+    <%= f.label :description, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, rows: 10, required: true, placeholder: 'Description', class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :sample_input %>
-    <%= f.text_field :sample_input %>
+  <div class="form-group row">
+    <%= f.label "Input", class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :input_description, rows: 3, required: true, placeholder: 'Sample input', class: 'form-control' %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.label "Input package" %>
+      <%= f.file_field :input_description %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :sample_output %>
-    <%= f.text_field :sample_output %>
+  <div class="form-group row">
+    <%= f.label "Output", class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :output_description, rows: 3, required: true, placeholder: 'Sample output', class: 'form-control' %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.label "Output package" %>
+      <%= f.file_field :output_description %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :input %>
-    <%= f.text_field :input %>
+  <div class="form-group row">
+    <%= f.label :time_limit, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.number_field :time_limit, required: true, placeholder: 'Time Limit (seconds)', class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :output %>
-    <%= f.text_field :output %>
+  <div class="form-group row">
+    <%= f.label :memory_limit, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.number_field :memory_limit, required: true, placeholder: 'Memory Limit (kb)', class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :note %>
-    <%= f.text_field :note %>
+  <div class="form-group row">
+    <%= f.label :note, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :note, placeholder: 'Note', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label "Custom check", class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.text_area :custom_check, rows: 3, placeholder: 'Custom check', class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create', class: 'btn btn-success'%>
   </div>
 <% end %>

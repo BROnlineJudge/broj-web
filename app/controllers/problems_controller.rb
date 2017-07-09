@@ -25,13 +25,15 @@ class ProblemsController < ApplicationController
   # POST /problems.json
   def create
     @problem = Problem.new(problem_params)
-
     respond_to do |format|
       if @problem.save
         format.html { redirect_to @problem, notice: 'Problem was successfully created.' }
         format.json { render :show, status: :created, location: @problem }
       else
-        format.html { render :new }
+        format.html {
+          flash.now[:alert] = @problem.errors.full_messages.join(', ')
+          render :new
+        }
         format.json { render json: @problem.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +71,8 @@ class ProblemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params
-      params.require(:problem).permit(:name, :description, :sample_input, :sample_output, :input, :output, :note)
+      params.require(:problem).permit(:name, :description, :input_description,
+                                      :output_description, :note, :time_limit,
+                                      :memory_limit)
     end
 end

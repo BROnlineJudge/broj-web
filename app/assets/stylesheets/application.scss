@@ -12,23 +12,55 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
-@import "materialize/components/color";
-$primary-color: color("teal", "lighten-3") !default;
-$secondary-color: color("black", "base") !default;
-@import 'materialize';
-@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Cantarell');
 
-.navbar-item {
-	padding: 20px 15px !important;
-	font-size: 1.3rem;
-	text-transform: uppercase;
+html {
+  position: relative;
+  height: 100%;
 }
 
-.navbar-item:visited {
-	color: auto;
+body {
+  font-family: Cantarell !important;
+  height: 100%;
+  background-color: #FEFEFE;
 }
 
-.brand-logo img {
-	width: 15%;
+.wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto 60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+body > footer {
+  height: 55px;
+}
+.navbar {
+  background-color: #7BB992;
+}
+
+.navtop {
+  margin-bottom: 20px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.navbar-light .navbar-brand {
+  color: rgba(255, 255, 255, 0.8);
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.5);
+  }
 }

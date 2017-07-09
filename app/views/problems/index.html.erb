@@ -1,39 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 push-md-3">
+      <h1>Problems</h1>
+    </div>
 
-<h1>Problems</h1>
+    <div class="col-md-12">
+      <table class="table table-striped table-bordered table-hover table-responsive contest">
+        <thead>
+          <tr>
+          <th>Name</th>
+          <th>Time Limit</th>
+          <th>Memory Limit</th>
+          <th colspan=2></th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Sample input</th>
-      <th>Sample output</th>
-      <th>Input</th>
-      <th>Output</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <tbody>
+          <% @problems.each do |problem| %>
+            <tr>
+              <td><%= link_to problem.name, problem_path(problem) %></td>
+              <td><%= problem.time_limit %>s</td>
+              <td><%= problem.memory_limit %>mb</td>
+              <td>
+                <%= link_to 'Edit', edit_problem_path(problem), class: 'btn btn-xs btn-secondary' if(user_signed_in? and current_user.admin) %>
+                <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' if(user_signed_in? and current_user.admin) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <tbody>
-    <% @problems.each do |problem| %>
-      <tr>
-        <td><%= problem.name %></td>
-        <td><%= problem.description %></td>
-        <td><%= problem.sample_input %></td>
-        <td><%= problem.sample_output %></td>
-        <td><%= problem.input %></td>
-        <td><%= problem.output %></td>
-        <td><%= problem.note %></td>
-        <td><%= link_to 'Show', problem %></td>
-        <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-        <td><%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= link_to 'New Problem', new_problem_path, class: 'btn btn-primary' if(user_signed_in? and current_user.admin)%>
 
-<br>
-
-<%= link_to 'New Problem', new_problem_path %>
+    </div>
+  </div>
+</div>

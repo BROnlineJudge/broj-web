@@ -1,71 +1,66 @@
-<p id="notice"><%= notice %></p>
-<div class="row">
-  <div class="col s9 m9">
-    <div class="card teal lighten-3">
-      <div class="card-content grey-text text-darken-2 problem">
-        <center>
-          <span class="card-title"><%= @problem.name %></span>
-        </center>
-        <div class="card  white">
-          <div class="card-content grey-text text-darken-2 problem">
-            <%= @problem.description %>
-          </div>
-        </div>
-        <div class="card  white">
-          <div class="card-content grey-text text-darken-2 problem">
-            <h2>Example:</h2>
-            <div class="card  white">
-              <div class="card-content grey-text text-darken-2 problem">
-                Input: <%= @problem.sample_input %>
-              </div>
-            </div>
-            <div class="card  white">
-              <div class="card-content grey-text text-darken-2 problem">
-              Output: <%= @problem.sample_output %>
-              </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-block">
+          <h2 class="card-title"><%= @problem.name %></h2>
+
+          <div class="card">
+            <div class="card-block">
+              <%= @problem.description.html_safe %>
             </div>
           </div>
-        </div>
-        <div class="card  white">
-          <div class="card-content grey-text text-darken-2 problem">
-            <h2>Note:</h2>
-            <%= @problem.note %>
+
+          <div class="card">
+            <div class="card-block">
+              <h4>Input:</h4>
+              <%= @problem.input_description.html_safe %>
+            </div>
+            <div class="card-block">
+              <h4>Output:</h4>
+              <%= @problem.output_description.html_safe %>
+            </div>
           </div>
+          <%if(not @problem.note.blank?)%>
+          <div class="card">
+            <div class="card-block">
+              <h4>Note:</h4>
+              <%= @problem.note %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="card-block">
+          <%= link_to 'Edit', edit_problem_path(@problem), class: 'card-link btn btn-primary' if(user_signed_in? and current_user.admin) %>
+          <%= link_to 'Back', problems_path, class: 'card-link btn btn-primary' if(user_signed_in? and current_user.admin) %>
         </div>
       </div>
-      <div class="card-action">
-        <%= link_to 'Edit', edit_problem_path(@problem) %> |
-        <%= link_to 'Back', problems_path %>
-      </div>
     </div>
-  </div>
-  <div class="col s3 m3">
-    <div class="card teal lighten-3">
-      <div class="card-content grey-text text-darken-2 problem">
-        <span class="card-title">Contest 2</span>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue, eros id congue convallis, mi eros rhoncus lorem, ac luctus ligula lacus auctor purus. Nullam a congue massa, a mollis felis.</p>
+
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">Contest 2</h4>
+          <p>Runing: 57 minutes left</p>
+        </div>
+        <div class="card-action">
+          <a class="btn" href="#">Standings</a>
+          <%= link_to '<i class="fa fa-paper-plane" aria-hidden="true"></i> Submit'.html_safe, new_submission_url, class: 'card-link btn btn-success'%>
+        </div>
       </div>
-      <div class="card-action">
-        <a class="btn" href="#">Standing</a>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col s3 m3">
-    <div class="card teal lighten-3">
-      <div class="card-content grey-text text-darken-2 problem">
-        <span class="card-title">My Submissions</span>
-      <div class="card-action">
-        Submission 2 | WA
-      </div>
-      <div class="card-action">
-        Submission 1 | TLE
-      </div>
+
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">My Submissions</h4>
+        <div class="card-action">
+          Submission 2 | WA
+        </div>
+        <div class="card-action">
+          Submission 1 | TLE
+        </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
